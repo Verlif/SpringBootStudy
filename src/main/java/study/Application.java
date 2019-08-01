@@ -4,6 +4,7 @@ import study.controller.Controller;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import study.utils.PropFileUtil;
 
 @SpringBootApplication
 @EnableScheduling
