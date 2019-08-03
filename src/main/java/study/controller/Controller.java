@@ -1,7 +1,10 @@
 package study.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
+import study.entity.User;
 import study.utils.QMegCodeUtil;
 
 import java.util.Arrays;
@@ -10,9 +13,9 @@ import java.util.Arrays;
 @EnableAutoConfiguration
 public class Controller {
 
-//    @Autowired
-//    @Qualifier(value = "user_verlif")
-//    private User user;
+    @Autowired
+    @Qualifier(value = "user_verlif")
+    private User user;
 
     @GetMapping(value = "/name")
     @ResponseBody

@@ -1,8 +1,8 @@
 package study.config;
 
 import study.entity.User;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Bean;
 
 @Configuration
 public class EntityConfig {
@@ -12,7 +12,7 @@ public class EntityConfig {
     }
 
     @Bean(name = "user_verlif")
-    User getUser() {
+    public User getUser() {
         return new User(1, "Verlif");
     }
 }

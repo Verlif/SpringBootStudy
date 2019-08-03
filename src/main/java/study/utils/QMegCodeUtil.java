@@ -83,7 +83,7 @@ public class QMegCodeUtil {
         private String message;
         private SmsSingleSender sss;
 
-        public SendMessage(SmsSingleSender sss, String phoneNumber, String message) {
+        SendMessage(SmsSingleSender sss, String phoneNumber, String message) {
             this.sss = sss;
             this.phoneNumber = phoneNumber;
             this.message = message;
