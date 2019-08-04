@@ -1,4 +1,4 @@
-package study.utils;
+package com.study.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
@@ -9,14 +9,20 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
 import java.security.Key;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * Created by 16508 on 2018/7/5.
  */
 public class JwtUtils {
     private final static String base64Secret = "MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY=";
-    private final static int expiresSecond = 172800000;
+    private final static int expiresSecond = 1000 * 60 * 60 * 24;
 
+    /**
+     * 验证token的有效性
+     * @param jsonWebToken  目标token
+     * @return  token信息,当token失效时返回null
+     */
     public static Claims parseJWT(String jsonWebToken) {
         try {
             Claims claims = Jwts.parser()
@@ -28,7 +34,12 @@ public class JwtUtils {
         }
     }
 
-    public static String createJWT(String username, String ip) {
+    /**
+     * 创建token
+     * @param ref   在token中添加的参数表
+     * @return  生成的token
+     */
+    public static String createJWT(HashMap<String, String> ref) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
 
         long nowMillis = System.currentTimeMillis();
@@ -39,10 +50,12 @@ public class JwtUtils {
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 
         //添加构成JWT的参数
-        JwtBuilder builder = Jwts.builder().setHeaderParam("type", "JWT")
-                .claim("user_name", username)
-                .claim("user_ip", ip)
-                .signWith(signatureAlgorithm, signingKey);
+        JwtBuilder builder = Jwts.builder().setHeaderParam("type", "JWT");
+        for (String key : ref.keySet()) {
+            builder.claim(key, ref.get(key));
+        }
+        builder.signWith(signatureAlgorithm, signingKey);
+
         //添加Token过期时间
         if (expiresSecond >= 0) {
             long expMillis = nowMillis + expiresSecond;

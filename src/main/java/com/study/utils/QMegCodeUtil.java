@@ -1,4 +1,4 @@
-package study.utils;
+package com.study.utils;
 
 import com.github.qcloudsms.SmsSingleSender;
 import com.github.qcloudsms.SmsSingleSenderResult;

@@ -1,4 +1,4 @@
-package study.utils;
+package com.study.utils;
 
 import java.io.*;
 import java.util.Enumeration;
