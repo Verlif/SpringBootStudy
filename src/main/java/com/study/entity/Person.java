@@ -1,5 +1,5 @@
 package com.study.entity;
 
-public interface Person {
+public interface Person{
     String sayHello();
 }
