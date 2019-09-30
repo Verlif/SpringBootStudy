@@ -3,11 +3,12 @@ package com.study.entity;
 import java.util.Date;
 
 public class Right extends JSONBuilder {
-    private String rightId;
-    private String rightName;
-    private String rightNum;
-    private String rightDesc;
-    private Date createTime;
+
+    private String rightId;     // 权限id
+    private String rightName;   // 权限名称
+    private String rightNum;    // 权限编号
+    private String rightDesc;   // 权限描述
+    private Date createTime;    // 权限创建时间
 
     public String getRightId() {
         return rightId;

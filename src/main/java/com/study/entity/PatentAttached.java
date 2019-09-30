@@ -3,11 +3,12 @@ package com.study.entity;
 import java.util.Date;
 
 public class PatentAttached extends JSONBuilder {
-    private String paId;
-    private String patentId;
-    private String paPicAddr;
-    private Date createTime;
-    private Date updateTime;
+
+    private String paId;            // 专利附件表内id
+    private String patentId;        // 附属于专利的id
+    private String paPicAddr;       // 专利相关图片网络地址
+    private Date createTime;        // 附件创建时间
+    private Date updateTime;        // 附件更新时间
 
     public String getPaId() {
         return paId;

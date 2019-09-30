@@ -1,32 +1,14 @@
-package com.study.entity;
+package com.study.entity.result;
+
+import com.study.entity.JSONBuilder;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Order extends JSONBuilder {
-
-    //订单刚生成，未确认状态
-    public static final String STATUS_UNCONFIRMED = "unconfirmed";
-    //订单已确认，待支付
-    public static final String STATUS_UNPAID = "unpaid";
-    //订单已支付
-    public static final String STATUS_FINISH = "finish";
-    //订单被取消
-    public static final String STATUS_CANCEL = "cancel";
-    //订单被删除
-    public static final String STATUS_DELETE = "delete";
-
-    //订单超时时间
-    public static final long OVERTIME = 1000 * 60 * 60 * 24;
-
-    //平台一站式服务
-    public static final int TYPE_THE_WHOLE = 0;
-    //第三方服务
-    public static final int TYPE_ANOTHER = 1;
-
+public class OrderResult extends JSONBuilder {
     private String orderId;             // 订单id
     private String orderNum;            // 订单号
-    private String userId;              // 订单用户id
+//    private String userId;              // 订单用户id
     private String patentId;            // 专利id
     private BigDecimal orderPayment;    // 订单支付金额
     private int orderType;              // 订单中的服务类型
@@ -40,37 +22,13 @@ public class Order extends JSONBuilder {
     private Date createTime;            // 订单创建时间
     private Date updateTime;            // 订单更新时间
 
-    public static String getStatusUnconfirmed() {
-        return STATUS_UNCONFIRMED;
-    }
-
-    public static String getStatusUnpaid() {
-        return STATUS_UNPAID;
-    }
-
-    public static String getStatusFinish() {
-        return STATUS_FINISH;
-    }
-
-    public static String getStatusCancel() {
-        return STATUS_CANCEL;
-    }
-
-    public static String getStatusDelete() {
-        return STATUS_DELETE;
-    }
-
-    public static long getOVERTIME() {
-        return OVERTIME;
-    }
-
-    public static int getTypeTheWhole() {
-        return TYPE_THE_WHOLE;
-    }
-
-    public static int getTypeAnother() {
-        return TYPE_ANOTHER;
-    }
+    private String patentName;
+    private String userId;              // 专利对应用户id
+    private String userName;
+    private String patentDetails;
+    private String patentArea;
+    private String patentKeyword;
+    private int patentDealTypes;
 
     public String getOrderId() {
         return orderId;
@@ -86,14 +44,6 @@ public class Order extends JSONBuilder {
 
     public void setOrderNum(String orderNum) {
         this.orderNum = orderNum;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public String getPatentId() {
@@ -190,5 +140,61 @@ public class Order extends JSONBuilder {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getPatentName() {
+        return patentName;
+    }
+
+    public void setPatentName(String patentName) {
+        this.patentName = patentName;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPatentDetails() {
+        return patentDetails;
+    }
+
+    public void setPatentDetails(String patentDetails) {
+        this.patentDetails = patentDetails;
+    }
+
+    public String getPatentArea() {
+        return patentArea;
+    }
+
+    public void setPatentArea(String patentArea) {
+        this.patentArea = patentArea;
+    }
+
+    public String getPatentKeyword() {
+        return patentKeyword;
+    }
+
+    public void setPatentKeyword(String patentKeyword) {
+        this.patentKeyword = patentKeyword;
+    }
+
+    public int getPatentDealTypes() {
+        return patentDealTypes;
+    }
+
+    public void setPatentDealTypes(int patentDealTypes) {
+        this.patentDealTypes = patentDealTypes;
     }
 }

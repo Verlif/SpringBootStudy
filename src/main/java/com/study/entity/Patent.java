@@ -1,22 +1,35 @@
 package com.study.entity;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class Patent extends JSONBuilder {
-    private String patentId;
-    private String patentName;
-    private String userId;
-    private String patentDetails;
-    private String patentArea;
-    private String patentKeyword;
-    private int patentDealTypes;
-    private BigDecimal patentPrice;
-    private boolean isSale;
-    private Date createTime;
-    private Date updateTime;
+
+    public static final String DEAL_TYPE_DISPOSABLE = "disposable";         // 一次性买断
+    public static final String DEAL_TYPE_SUPPORT = "support";               // 一次性买断+技术支持
+    public static final String DEAL_TYPE_COOPERATION = "cooperation";       // 产学研联合开发、运营
+    public static final String DEAL_TYPE_AUTHORIZATION = "authorization";   // 仅授权
+    public static final String DEAL_TYPE_CONSULT = "consult";               // 顾问聘用方式
+
+    private String patentId;        //专利id
+    private String patentCode;      //专利编号
+    private String patentName;      //专利名称
+    private String userId;          //用户id
+    private String patentDetails;   //专利说明
+    private String patentArea;      //专利领域
+    private String patentKeyword;   //专利关键词集
+    private String patentDealTypes; //专利出售方式
+    private BigDecimal patentPrice; //专利预售价格
+    private boolean isSale;         //专利是否已卖出
+    private Date createTime;        //专利创建时间
+    private Date updateTime;        //专利信息更新时间
 
     public Patent() {}
+    public Patent(JSONObject json) {
+        super(json);
+    }
 
     public String getPatentId() {
         return patentId;
@@ -24,6 +37,14 @@ public class Patent extends JSONBuilder {
 
     public void setPatentId(String patentId) {
         this.patentId = patentId;
+    }
+
+    public String getPatentCode() {
+        return patentCode;
+    }
+
+    public void setPatentCode(String patentCode) {
+        this.patentCode = patentCode;
     }
 
     public String getPatentName() {
@@ -58,6 +79,16 @@ public class Patent extends JSONBuilder {
         this.patentArea = patentArea;
     }
 
+    /**
+     * 请通过此方法添加关键词
+     * @param kw    关键词
+     */
+    public void addPatentKeyword(String kw) {
+        if (patentKeyword != null) {
+            patentKeyword += "," + kw;
+        } else patentKeyword = kw;
+    }
+
     public String getPatentKeyword() {
         return patentKeyword;
     }
@@ -66,11 +97,37 @@ public class Patent extends JSONBuilder {
         this.patentKeyword = patentKeyword;
     }
 
-    public int getPatentDealTypes() {
+    /**
+     * 获取关键词数组
+     * @return  关键词数组
+     */
+    public String[] getKeywordList() {
+        return patentKeyword.split(",");
+    }
+
+    public String getPatentDealTypes() {
         return patentDealTypes;
     }
 
-    public void setPatentDealTypes(int patentDealTypes) {
+    /**
+     * 获取交易方式数组
+     * @return  交易方式数组
+     */
+    public String[] getDealTypesList() {
+        return patentDealTypes.split(",");
+    }
+
+    /**
+     * 添加交易方式，请使用内置参数
+     * @param dealType  交易方式
+     */
+    public void addDealType(String dealType) {
+        if (patentDealTypes != null) {
+            patentDealTypes += "," + dealType;
+        } else patentDealTypes = dealType;
+    }
+
+    public void setPatentDealTypes(String patentDealTypes) {
         this.patentDealTypes = patentDealTypes;
     }
 

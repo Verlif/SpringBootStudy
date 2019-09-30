@@ -3,11 +3,12 @@ package com.study.entity;
 import java.util.Date;
 
 public class UserAttached extends JSONBuilder {
-    private String uaId;
-    private String userId;
-    private String uaPicAddr;
-    private Date createTime;
-    private Date updateTime;
+
+    private String uaId;        // 用户附件表内id
+    private String userId;      // 相关用户id
+    private String uaPicAddr;   // 用户图片网络地址
+    private Date createTime;    // 附件创建时间
+    private Date updateTime;    // 附件信息修改时间
 
     public String getUaId() {
         return uaId;

@@ -3,17 +3,18 @@ package com.study.entity;
 import java.util.Date;
 
 public class Shipping extends JSONBuilder {
-    private String shippingId;
-    private String userId;
-    private String shippingName;
-    private String shippingPhone;
-    private String shippingProvince;
-    private String shippingCity;
-    private String shippingDistrict;
-    private String shippingAddress;
-    private String shippingZip;
-    private Date createTime;
-    private Date updateTime;
+
+    private String shippingId;          // 表内id
+    private String userId;              // 收件人id
+    private String shippingName;        // 收件人姓名
+    private String shippingPhone;       // 收件人手机号
+    private String shippingProvince;    // 收件地址省份
+    private String shippingCity;        // 收件地址城市
+    private String shippingDistrict;    // 收件地址区县
+    private String shippingAddress;     // 收件详细地址
+    private String shippingZip;         // 收件地址邮编
+    private Date createTime;            // 收件信息创建时间
+    private Date updateTime;            // 收件信息更改时间
 
     public String getShippingId() {
         return shippingId;

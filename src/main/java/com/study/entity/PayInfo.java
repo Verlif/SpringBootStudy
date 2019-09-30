@@ -3,14 +3,18 @@ package com.study.entity;
 import java.util.Date;
 
 public class PayInfo extends JSONBuilder {
-    private String payId;
-    private String userId;
-    private String orderId;
-    private int payType;
-    private String payNum;
-    private String payStatus;
-    private Date createTime;
-    private Date updateTime;
+
+    public static final int TYPE_WX = 0;        // 微信支付
+    public static final int TYPE_ALIPAY = 1;    // 支付宝支付
+
+    private String payId;       // 支付信息id
+    private String userId;      // 支付用户id
+    private String orderId;     // 相关订单id
+    private int payType;        // 支付方式
+    private String payNum;      // 交易流水号
+    private String payStatus;   // 支付状态?待商榷
+    private Date createTime;    // 支付信息创建时间
+    private Date updateTime;    // 支付信息更新时间
 
     public String getPayId() {
         return payId;

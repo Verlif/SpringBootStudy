@@ -16,7 +16,7 @@ import java.util.HashMap;
  */
 public class JwtUtils {
     private final static String base64Secret = "MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY=";
-    private final static int expiresSecond = 1000 * 60 * 60 * 24;
+    private final static int expiresSecond = 604800000;         // 过期时间为7 * 24小时
 
     /**
      * 验证token的有效性

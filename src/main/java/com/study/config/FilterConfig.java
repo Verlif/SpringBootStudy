@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import com.study.filter.tokenFilter;
 
-@Configuration
+//@Configuration
 public class FilterConfig {
 
     @Bean

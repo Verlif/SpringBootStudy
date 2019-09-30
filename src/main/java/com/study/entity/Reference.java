@@ -1,11 +1,12 @@
 package com.study.entity;
 
 public class Reference extends JSONBuilder {
-    private String refId;
-    private String refType;
-    private String refName;
-    private String refNum;
-    private String upId;
+
+    private String refId;       // 参数id
+    private String refType;     // 参数附属类型
+    private String refName;     // 参数名(内容)
+    private String refNum;      // 参数编号
+    private String upId;        // 父级参数id
 
     public String getRefId() {
         return refId;

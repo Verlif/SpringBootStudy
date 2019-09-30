@@ -3,11 +3,12 @@ package com.study.entity;
 import java.util.Date;
 
 public class Group2Right extends JSONBuilder {
-    private String g2rId;
-    private String rightId;
-    private String groupId;
-    private Date createTime;
-    private Date updateTime;
+
+    private String g2rId;           // 分组权限id
+    private String rightId;         // 权限id
+    private String groupId;         // 组别id
+    private Date createTime;        // 权限创建时间
+    private Date updateTime;        // 权限修改时间
 
     public String getG2rId() {
         return g2rId;

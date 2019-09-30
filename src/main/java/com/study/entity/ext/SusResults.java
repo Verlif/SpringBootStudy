@@ -3,14 +3,12 @@ package com.study.entity.ext;
 import com.study.entity.JSONBuilder;
 import com.study.entity.Results;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SusResults extends Results {
 
     public SusResults() {
         build();
-        setData(new ArrayList());
     }
     public SusResults(JSONBuilder object) {
         build();
@@ -19,6 +17,9 @@ public class SusResults extends Results {
     public SusResults(List list) {
         build();
         setData(list);
+    }
+    public SusResults(String name, Object object) {
+        put(name, object);
     }
 
     private void build() {

@@ -9,7 +9,7 @@ public class BuildToken {
 
     public static void main (String[] args) {
         HashMap<String, String> data = new HashMap<>();
-        data.put("userId", "1234567asdfgh");
+        data.put("userId", "4a34ac674e4240ea8fb7c46435b7f777");
         String token = JwtUtils.createJWT(data);
         System.out.println("token: " + token);
         Claims claims = JwtUtils.parseJWT(token);

@@ -1,13 +1,11 @@
 package com.study.controller;
 
 import com.study.entity.User;
-import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
@@ -19,8 +17,7 @@ public class Controller {
     private User user;
 
     @RequestMapping("/name")
-    @ResponseBody
-    String getName(
+    public String getName(
             @RequestAttribute String userId,
             String name,
             HttpServletResponse response
@@ -35,18 +32,21 @@ public class Controller {
     }
 
     @RequestMapping("")
-    @ResponseBody
-    String index() {
+    public String index() {
         return "Hello " + user.getUserName();
     }
 
-    @RequestMapping("/login")
-    @ResponseBody
+    @RequestMapping("login")
     String login(
             @RequestHeader("ClientToken") String token,
             @RequestParam(required = false) String account,
             @RequestParam(required = false) String password
     ) {
         return null;
+    }
+
+    @RequestMapping("throw")
+    String throwTest() throws NoSuchMethodException {
+        throw new NoSuchMethodException("这里是异常抛出");
     }
 }

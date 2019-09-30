@@ -1,17 +1,26 @@
 package com.study.entity;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.Date;
 
-public class Comment extends JSONBuilder{
-    private String comId;
-    private String userId;
-    private String patentId;
-    private int comType;
-    private String comContent;
-    private Date createTime;
-    private Date updateTime;
+public class Comment extends JSONBuilder {
+
+    public static final int COM_TYPE_GOOD = 0;          //好评
+    public static final int COM_TYPE_BAD = 3;          //差评
+
+    private String comId;           // 评论id
+    private String userId;          // 评论者id
+    private String patentId;        // 被评专利id
+    private int comType;            // 评论类型，例如好评坏评
+    private String comContent;      // 评论内容
+    private Date createTime;        // 评论创建时间
+    private Date updateTime;        // 评论更新时间
 
     public Comment() {}
+    public Comment(JSONObject json) {
+        super(json);
+    }
 
     public String getComId() {
         return comId;
@@ -41,6 +50,10 @@ public class Comment extends JSONBuilder{
         return comType;
     }
 
+    /**
+     * 设置评论类型，请参照内置参数设定
+     * @param comType   评论类型
+     */
     public void setComType(int comType) {
         this.comType = comType;
     }

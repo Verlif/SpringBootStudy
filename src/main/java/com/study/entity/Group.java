@@ -1,9 +1,12 @@
 package com.study.entity;
 
 public class Group extends JSONBuilder {
-    private String groupId;
-    private String groupName;
-    private String notes;       //备注
+
+    public static final String ID_DEFAULT = "default";
+
+    private String groupId;     // 分组id
+    private String groupName;   // 分组名称
+    private String notes;       // 备注
 
     public String getGroupId() {
         return groupId;

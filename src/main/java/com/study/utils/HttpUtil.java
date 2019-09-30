@@ -7,13 +7,12 @@ import java.util.Objects;
 
 public class HttpUtil {
 
-    private OkHttpClient client;
-
-    public HttpUtil() {
+    private static OkHttpClient client;
+    static {
         client = new OkHttpClient();
     }
 
-    public String touchURL(String url, HashMap<String, String> params) {
+    public static String postURL(String url, HashMap<String, String> params) {
         try {
             FormBody.Builder formBody = new FormBody.Builder();
             if (params != null)
@@ -29,6 +28,30 @@ public class HttpUtil {
             Response rp = call.execute();
             return Objects.requireNonNull(rp.body()).string();
         } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static String getURL(String url, HashMap<String, String> params) {
+        try {
+            StringBuilder urlBuilder = new StringBuilder(url);
+            if (params != null) {
+                urlBuilder.append("?");
+                for (String key : params.keySet()) {
+                    String value = params.get(key);
+                    urlBuilder.append(key).append("=").append(value).append("&");
+                }
+                urlBuilder.append("1=1");
+            }
+            System.out.println(urlBuilder.toString());
+            Request req =  new Request.Builder()
+                    .url(url)
+                    .build();
+            Call call = client.newCall(req);
+            Response rp = call.execute();
+            return Objects.requireNonNull(rp.body()).string();
+        } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }

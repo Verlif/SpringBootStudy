@@ -34,12 +34,6 @@
             <version>2.1.6.RELEASE</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-        </dependency>
-
         <!-- 腾讯短信 -->
         <dependency>
             <groupId>com.github.qcloudsms</groupId>
@@ -72,11 +66,20 @@
             <artifactId>jansi</artifactId>
             <version>1.18</version>
         </dependency>
-        <!-- 热部署模块 -->
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional> <!-- 这个需要为 true 热部署才有效 -->
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.59</version>
+        </dependency>
+
+
     </dependencies>
 </project>
