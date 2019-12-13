@@ -1,21 +1,18 @@
 package com.study.test;
 
-import com.study.bean.PaidItem;
-import com.study.entity.User;
-import com.study.entity.ext.FailResults;
-import com.study.entity.ext.SusResults;
-import com.study.utils.MapBeanUtil;
+import com.study.entity.Person;
+import com.study.entity.PersonImpl;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.util.logging.Logger;
 
 public class Main {
 
-    public static void main(String[] args) {
+    private static Logger logger = Logger.getLogger("mainLog");
 
-
+    public static void main(String[] args) throws IOException {
+        Person person = new PersonImpl();
+        System.out.println(person.getClass().getSimpleName());
     }
 
 }

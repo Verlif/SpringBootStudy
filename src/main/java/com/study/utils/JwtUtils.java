@@ -57,11 +57,11 @@ public class JwtUtils {
         builder.signWith(signatureAlgorithm, signingKey);
 
         //添加Token过期时间
-        if (expiresSecond >= 0) {
-            long expMillis = nowMillis + expiresSecond;
-            Date exp = new Date(expMillis);
-            builder.setExpiration(exp).setNotBefore(now);
-        }
+//        if (expiresSecond >= 0) {
+//            long expMillis = nowMillis + expiresSecond;
+//            Date exp = new Date(expMillis);
+//            builder.setExpiration(exp).setNotBefore(now);
+//        }
 
         //生成JWT
         return builder.compact();
