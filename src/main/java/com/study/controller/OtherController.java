@@ -30,7 +30,7 @@ public class OtherController {
     @RequestMapping("url")
     public String url(String url) {
         HttpUtil httpUtil = new HttpUtil();
-        return httpUtil.postURL(url, null);
+        return httpUtil.doPost(url, null, "");
     }
 
 }
